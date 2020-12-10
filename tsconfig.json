@@ -4,6 +4,7 @@
     "declaration": true,
     "isolatedModules": true,
     "module": "CommonJS",
+    "noUncheckedIndexedAccess": true,
     "outDir": "lib",
     "rootDir": "src/",
     "strict": true
