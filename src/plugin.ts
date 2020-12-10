@@ -7,26 +7,46 @@ export default function plugin() {
     visitor: {
       CallExpression(path: NodePath<types.CallExpression>) {
         const callee = path.node.callee;
-        const isIIFE = callee.type === "FunctionExpression";
 
-        if (isIIFE) {
-          const enumName = ((callee as types.FunctionExpression)
-            .params[0] as types.Identifier).name;
+        if (isFunctionExpression(callee)) {
+          const params = callee.params;
+          const [firstParam] = params;
 
-          const expressionArguments = path.node.arguments;
+          if (isIdentifier(firstParam)) {
+            const enumName = firstParam.name;
 
-          if (expressionArguments.length === 1) {
-            const [firstArgument] = expressionArguments;
+            const expressionArguments = path.node.arguments;
 
-            if (
-              firstArgument.type === "LogicalExpression" &&
-              (firstArgument.left as types.Identifier).name === enumName
-            ) {
-              path.addComment("leading", "#__PURE__");
+            if (expressionArguments.length === 1) {
+              const [firstArgument] = expressionArguments;
+
+              if (isLogicalExpression(firstArgument)) {
+                const { left } = firstArgument;
+
+                if (isIdentifier(left) && left.name === enumName) {
+                  path.addComment("leading", "#__PURE__");
+                }
+              }
             }
           }
         }
       },
     },
   };
+}
+
+function isFunctionExpression(
+  node: types.Node
+): node is types.FunctionExpression {
+  return node.type === "FunctionExpression";
+}
+
+function isIdentifier(node: types.Node | undefined): node is types.Identifier {
+  return node?.type === "Identifier";
+}
+
+function isLogicalExpression(
+  node: types.Node | undefined
+): node is types.LogicalExpression {
+  return node?.type === "LogicalExpression";
 }
