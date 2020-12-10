@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-pure-typescript-enum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Marks transpiled TypeScript enums as pure to allow tree-shaking on them.",
   "repository": {
     "type": "git",
