@@ -1,18 +1,53 @@
 {
-    "name": "typescript-pure-enum",
-    "version": "1.0.0",
-    "main": "output.js",
-    "author": "Leo Driesch",
-    "license": "MIT",
-    "scripts": {
-        "build": "babel enum.ts -o output.js",
-        "test": "yarn build && yarn agadoo"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.12.10",
-        "@babel/core": "^7.12.10",
-        "@babel/plugin-syntax-typescript": "^7.12.1",
-        "@babel/preset-typescript": "^7.12.7",
-        "agadoo": "^2.0.0"
-    }
+  "name": "babel-plugin-pure-typescript-enum",
+  "version": "0.1.0",
+  "description": "Marks transpiled TypeScript enums as pure to allow tree-shaking on them.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leodr/typescript-pure-enum.git"
+  },
+  "license": "MIT",
+  "author": "Leo Driesch",
+  "main": "lib/plugin.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "format": "prettier . --write",
+    "lint": "eslint src",
+    "prepublishOnly": "yarn test && yarn build",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-typescript": "^7.12.1",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rollup/plugin-virtual": "^2.0.3",
+    "@types/jest": "^26.0.18",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "acorn": "^8.0.4",
+    "agadoo": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.15.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "prettier-plugin-packagejson": "^2.2.8",
+    "rollup": "^2.34.2",
+    "typescript": "^4.1.2"
+  }
 }

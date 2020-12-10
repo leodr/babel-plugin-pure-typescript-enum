@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "isolatedModules": true,
+    "module": "CommonJS",
+    "outDir": "lib",
+    "rootDir": "src/",
+    "strict": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

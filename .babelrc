@@ -1,4 +1,0 @@
-{
-    "plugins": ["@babel/syntax-typescript", "./plugin"],
-    "presets": ["@babel/typescript"]
-}
