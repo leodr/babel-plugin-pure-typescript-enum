@@ -1,0 +1,3 @@
+enum Hello {
+    World,
+}

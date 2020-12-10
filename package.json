@@ -1,0 +1,18 @@
+{
+    "name": "typescript-pure-enum",
+    "version": "1.0.0",
+    "main": "output.js",
+    "author": "Leo Driesch",
+    "license": "MIT",
+    "scripts": {
+        "build": "babel enum.ts -o output.js",
+        "test": "yarn build && yarn agadoo"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-syntax-typescript": "^7.12.1",
+        "@babel/preset-typescript": "^7.12.7",
+        "agadoo": "^2.0.0"
+    }
+}
