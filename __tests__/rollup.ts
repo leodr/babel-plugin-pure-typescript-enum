@@ -2,9 +2,9 @@ import { transformSync } from "@babel/core";
 import virtual from "@rollup/plugin-virtual";
 import * as acorn from "acorn";
 import { rollup } from "rollup";
-import pureEnumsPlugin from "./plugin";
+import pureEnumsPlugin from "../src/plugin";
 
-test("should produce a tree-shakable enum", async () => {
+test("should shake away an unused enum", async () => {
   const code = `
         export enum Hello {
             World,
